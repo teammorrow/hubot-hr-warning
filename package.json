@@ -1,0 +1,19 @@
+{
+  "name": "hubot-sbc-warning",
+  "version": "1.0.0",
+  "description": "A Hubot plugin to give users a SBC violation yellow card.",
+  "keywords": [
+    "hubot",
+    "sbc"
+  ],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teammorrow/hubot-sbc-warning.git"
+  },
+  "main": "./src/sbc.coffee"
+}
