@@ -1,10 +1,10 @@
 {
-  "name": "hubot-sbc-warning",
+  "name": "hubot-hr-warning",
   "version": "1.0.0",
-  "description": "A Hubot plugin to give users a SBC violation yellow card.",
+  "description": "A Hubot plugin to give users a HR violation yellow card.",
   "keywords": [
     "hubot",
-    "sbc"
+    "human resources"
   ],
   "licenses": [
     {
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/teammorrow/hubot-sbc-warning.git"
+    "url": "https://github.com/teammorrow/hubot-hr-warning.git"
   },
-  "main": "./src/sbc.coffee"
+  "main": "./src/hr.coffee"
 }

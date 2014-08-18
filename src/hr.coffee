@@ -1,5 +1,5 @@
 # Description:
-#   Give users a SBC violation yellow card.
+#   Give users a HR violation yellow card.
 #
 # Dependencies:
 #   None
@@ -16,30 +16,30 @@
 
 module.exports = (robot) ->
   robot.respond /warn (.*)/i, (msg) ->
-    robot.brain.data.sbc_violations ||= {}
+    robot.brain.data.hr_violations ||= {}
 
     user = msg.match[1].trim()
     if user != ""
       if user != 'stats' && user != 'list'
         user = getWarnedUser robot, user
 
-        if typeof robot.brain.data.sbc_violations[user] != 'undefined'
-          robot.brain.data.sbc_violations[user] += 1
+        if typeof robot.brain.data.hr_violations[user] != 'undefined'
+          robot.brain.data.hr_violations[user] += 1
         else
-          robot.brain.data.sbc_violations[user] = 1
+          robot.brain.data.hr_violations[user] = 1
 
         emit = ''
-        if robot.brain.data.sbc_violations[user] % 10 > 0
-          msg.send user + ' gets an SBC violation yellow card. http://i.imgur.com/EHKAkR3.gif'
+        if robot.brain.data.hr_violations[user] % 10 > 0
+          msg.send user + ' gets a HR violation yellow card. http://i.imgur.com/EHKAkR3.gif'
         else
-          msg.send user + ' gets an SBC violation red card. This is your 10th consecutive yellow card. You are bad and you should feel bad.'
+          msg.send user + ' gets a HR violation red card. This is your 10th consecutive yellow card. You are bad and you should feel bad.'
 
         return
 
       size = 0
-      emit = 'SBC violation stats:\n'
+      emit = 'HR violation stats:\n'
       array = []
-      users = for user, cards of robot.brain.data.sbc_violations
+      users = for user, cards of robot.brain.data.hr_violations
         size++
         userCards = getCards robot, user
         array.push userCards
@@ -67,7 +67,7 @@ module.exports = (robot) ->
         emit += ' - ' + sortedUser.user + ' has ' + userEmit.join(' and ') + '\n'
 
       if size == 0
-        msg.send 'No SBC violations! Something is amok...'
+        msg.send 'No HR violations! Something is amok...'
         return
 
       msg.send emit
@@ -84,7 +84,7 @@ getWarnedUser = (robot, user) ->
 getCards = (robot, user) ->
   yellow = 0
   red = 0
-  cards = robot.brain.data.sbc_violations[user]
+  cards = robot.brain.data.hr_violations[user]
 
   # if cards are evenly divisble by 10, only red cards exist
   # count red cards with division
