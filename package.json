@@ -15,5 +15,5 @@
     "type": "git",
     "url": "https://github.com/teammorrow/hubot-hr-warning.git"
   },
-  "main": "./src/hr.coffee"
+  "main": "index.coffee"
 }
