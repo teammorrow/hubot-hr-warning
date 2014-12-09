@@ -1,6 +1,6 @@
 {
   "name": "hubot-hr-warning",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A Hubot plugin to give users a HR violation yellow card.",
   "keywords": [
     "hubot",
